@@ -50,7 +50,7 @@ logic has been implemented for v0.38 target version. Applications can migrate vi
 
 ### API Breaking Changes
 
-* (client) [\#5442](https://github.com/cosmos/cosmos-sdk/pull/5442) Remove client/alias.go as it's not necessary and 
+* (client) [\#5442](https://github.com/cosmos/cosmos-sdk/pull/5442) Remove client/alias.go as it's not necessary and
 components can be imported directly from the packages.
 * (store) [\#4748](https://github.com/cosmos/cosmos-sdk/pull/4748) The `CommitMultiStore` interface
 now requires a `SetInterBlockCache` method. Applications that do not wish to support this can simply
@@ -825,12 +825,12 @@ BREAKING CHANGES
 
 * SDK
   * [\#3750](https://github.com/cosmos/cosmos-sdk/issues/3750) Track outstanding rewards per-validator instead of globally,
-           and fix the main simulation issue, which was that slashes of
-           re-delegations to a validator were not correctly accounted for
-           in fee distribution when the redelegation in question had itself
-            been slashed (from a fault committed by a different validator)
-           in the same BeginBlock. Outstanding rewards are now available
-           on a per-validator basis in REST.
+	   and fix the main simulation issue, which was that slashes of
+	   re-delegations to a validator were not correctly accounted for
+	   in fee distribution when the redelegation in question had itself
+	    been slashed (from a fault committed by a different validator)
+	   in the same BeginBlock. Outstanding rewards are now available
+	   on a per-validator basis in REST.
   * [\#3669](https://github.com/cosmos/cosmos-sdk/pull/3669) Ensure consistency in message naming, codec registration, and JSON
   tags.
   * [\#3788](https://github.com/cosmos/cosmos-sdk/pull/3788) Change order of operations for greater accuracy when calculating delegation share token value
@@ -868,7 +868,7 @@ IMPROVEMENTS
 * SDK
   * [\#3753](https://github.com/cosmos/cosmos-sdk/issues/3753) Remove no-longer-used governance penalty parameter
   * [\#3679](https://github.com/cosmos/cosmos-sdk/issues/3679) Consistent operators across Coins, DecCoins, Int, Dec
-            replaced: Minus->Sub Plus->Add Div->Quo
+	    replaced: Minus->Sub Plus->Add Div->Quo
   * [\#3665](https://github.com/cosmos/cosmos-sdk/pull/3665) Overhaul sdk.Uint type in preparation for Coins Int -> Uint migration.
   * [\#3691](https://github.com/cosmos/cosmos-sdk/issues/3691) Cleanup error messages
   * [\#3456](https://github.com/cosmos/cosmos-sdk/issues/3456) Integrate in the Int.ToDec() convenience function
@@ -892,7 +892,7 @@ BUG FIXES
 
 * SDK
   * [\#3728](https://github.com/cosmos/cosmos-sdk/issues/3728) Truncate decimal multiplication & division in distribution to ensure
-           no more than the collected fees / inflation are distributed
+	   no more than the collected fees / inflation are distributed
   * [\#3727](https://github.com/cosmos/cosmos-sdk/issues/3727) Return on zero-length (including []byte{}) PrefixEndBytes() calls
   * [\#3559](https://github.com/cosmos/cosmos-sdk/issues/3559) fix occasional failing due to non-determinism in lcd test TestBonding
     where validator is unexpectedly slashed throwing off test calculations
@@ -1803,7 +1803,7 @@ BREAKING CHANGES
   -  [x/stake] [\#1828](https://github.com/cosmos/cosmos-sdk/issues/1828) Force user to specify amount on create-validator command by removing default
   -  [x/gov] Change `--proposalID` to `--proposal-id`
   -  [x/stake, x/gov] [\#1606](https://github.com/cosmos/cosmos-sdk/issues/1606) Use `--from` instead of adhoc flags like `--address-validator`
-        and `--proposer` to indicate the sender address.
+	and `--proposer` to indicate the sender address.
   -  [\#1551](https://github.com/cosmos/cosmos-sdk/issues/1551) Remove `--name` completely
   -  Genesis/key creation (`gaiad init`) now supports user-provided key passwords
 
@@ -1823,16 +1823,16 @@ BREAKING CHANGES
   - [x/auth] Default TxDecoder can be found in `x/auth` rather than baseapp
   - [client] [\#1551](https://github.com/cosmos/cosmos-sdk/issues/1551): Refactored `CoreContext` to `TxContext` and `QueryContext`
       - Removed all tx related fields and logic (building & signing) to separate
-        structure `TxContext` in `x/auth/client/context`
+	structure `TxContext` in `x/auth/client/context`
 
 * Tendermint
     - v0.22.5 -> See [Tendermint PR](https://github.com/tendermint/tendermint/pull/1966)
-        - change all the cryptography imports.
+	- change all the cryptography imports.
     - v0.23.0 -> See
       [Changelog](https://github.com/tendermint/tendermint/blob/v0.23.0/CHANGELOG.md#0230)
       and [SDK PR](https://github.com/cosmos/cosmos-sdk/pull/1927)
-        - BeginBlock no longer includes crypto.Pubkey
-        - use time.Time instead of int64 for time.
+	- BeginBlock no longer includes crypto.Pubkey
+	- use time.Time instead of int64 for time.
 
 FEATURES
 
@@ -2730,18 +2730,18 @@ BREAKING CHANGES:
   "app_options": {
     "accounts": [{
       "pub_key": {
-        "type": "ed25519",
-        "data": "6880db93598e283a67c4d88fc67a8858aa2de70f713fe94a5109e29c137100c2"
+	"type": "ed25519",
+	"data": "6880db93598e283a67c4d88fc67a8858aa2de70f713fe94a5109e29c137100c2"
       },
       "coins": [
-        {
-          "denom": "blank",
-          "amount": 12345
-        },
-        {
-          "denom": "ETH",
-          "amount": 654321
-        }
+	{
+	  "denom": "blank",
+	  "amount": 12345
+	},
+	{
+	  "denom": "ETH",
+	  "amount": 654321
+	}
       ]
     }],
     "plugin_options": ["plugin1/key1", "value1", "plugin1/key2", "value2"]
@@ -2805,5 +2805,3 @@ BUG FIXES:
 [v0.37.1]: https://github.com/cosmos/cosmos-sdk/releases/tag/v0.37.1
 [v0.37.0]: https://github.com/cosmos/cosmos-sdk/releases/tag/v0.37.0
 [v0.36.0]: https://github.com/cosmos/cosmos-sdk/releases/tag/v0.36.0
-
-
