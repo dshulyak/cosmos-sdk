@@ -14,8 +14,11 @@ func BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock, sk Keeper) {
 	// Iterate over all the validators which *should* have signed this block
 	// store whether or not they have actually signed it and slash/unbond any
 	// which have missed too many blocks in a row (downtime slashing)
+	swin := sk.SignedBlocksWindow(ctx)
+	minswin := sk.MinSignedPerWindow(ctx)
 	for _, voteInfo := range req.LastCommitInfo.GetVotes() {
-		sk.HandleValidatorSignature(ctx, voteInfo.Validator.Address, voteInfo.Validator.Power, voteInfo.SignedLastBlock)
+		sk.HandleValidatorSignatureReuse(ctx, voteInfo.Validator.Address, voteInfo.Validator.Power, voteInfo.SignedLastBlock, swin, minswin)
+
 	}
 
 	// Iterate through any newly discovered evidence of infraction
